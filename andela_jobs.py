@@ -14,7 +14,7 @@ class AndelaTechJobs:
         self.page = requests.get(self.parent_link)
         self.scraper = BS(self.page.content, "html.parser")
         self.job_sections = None
-        self.departments =  ['software engineering', 'technology']
+        self.departments =  ['software engineering', 'technology'] 
         self.data = {} # holds information of the filtered jobs
     
     def get_scraper(self):
@@ -62,12 +62,3 @@ if __name__ ==  "__main__":
     andela_jobs.update_jobs()
     andela_jobs.extract_data()
     print(andela_jobs.get_data())
-    '''
-    print(andela_jobs.job_sections)
-    job = andela_jobs.job_sections[0].select('a')[0].get_text()
-    link = andela_jobs.job_sections[0].select('a')[0]['href']
-    location = andela_jobs.job_sections[0].find(class_="location").get_text()
-    print(f"{job}\n{link}\n{location}")
-    #children = list(job_sec[0].children)
-    #print(children)
-    #print(job_sec[0].select('h3')[0].get_text().lower())'''
